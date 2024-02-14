@@ -48,3 +48,7 @@ class GameWindow:
     def _play_music(self, ):
         # TODO : Complete method content
         pass
+
+    def game_start(self, ):
+        # TODO : Complete method content
+        pass

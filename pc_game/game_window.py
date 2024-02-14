@@ -4,12 +4,14 @@ from LeleEasyTkinter.easy_auto_window import EasyWindow
 
 from pc_game.grade import Grade
 from pc_game.music import Music
+from pc_game.red_line import RedLine
 from pc_game.score import Score
 from pc_game.seplit_line import SeplitLine
 
 
 class GameWindow:
     def __init__(self):
+        self._canvas = None
         self._window = None
         self._grade = Grade()
         self._score = Score()
@@ -55,5 +57,10 @@ class GameWindow:
         easy_window = EasyWindow(self._window, window_title="PcGame window", adjust_x=False,
                                  adjust_y=False)
         easy_window.auto_position()
-        tk.Canvas(self._window, width=easy_window.get_window_width(), height=easy_window.get_window_height()).pack()
+        print(easy_window.get_window_width(), easy_window.get_window_height())
+        self._canvas = tk.Canvas(self._window, width=easy_window.get_window_width(),
+                                 height=easy_window.get_window_height())
+        self._canvas.pack()
+        red_line = RedLine(self._window, self._canvas, easy_window.get_window_height(), easy_window.get_window_width())
+        red_line.draw_red_lines()
         self._window.mainloop()

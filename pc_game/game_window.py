@@ -1,3 +1,7 @@
+import tkinter as tk
+
+from LeleEasyTkinter.easy_auto_window import EasyWindow
+
 from pc_game.grade import Grade
 from pc_game.music import Music
 from pc_game.score import Score
@@ -6,19 +10,13 @@ from pc_game.seplit_line import SeplitLine
 
 class GameWindow:
     def __init__(self):
-        # TODO define the parameters : 
+        self.window = None
         self.grade = Grade()
-        # TODO define the parameters : 
         self.score = Score()
-        # TODO you should add Ball elements in the list up to 2 elements
         self.balls = []
-        # TODO define the parameters : 
         self.seplit_line = SeplitLine()
-        # TODO define the parameters : 
         self.music = Music()
-        # TODO you should add Button elements in the list
         self.buttons = []
-        # TODO you should add GameChar elements in the list
         self.game_chars = []
 
     def _create_grade(self, ):
@@ -49,6 +47,7 @@ class GameWindow:
         # TODO : Complete method content
         pass
 
-    def game_start(self, ):
-        # TODO : Complete method content
-        pass
+    def game_start(self):
+        self.window = tk.Tk()
+        EasyWindow(self.window, "PcGame window", False, False).auto_position()
+        self.window.mainloop()

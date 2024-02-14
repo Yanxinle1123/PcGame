@@ -52,7 +52,8 @@ class GameWindow:
 
     def game_start(self):
         self._window = tk.Tk()
-        window_x, window_y = EasyWindow(self._window, get_window=True, window_title="PcGame window", adjust_x=False,
-                                        adjust_y=False).auto_position()
-        tk.Canvas(self._window, width=window_x, height=window_y).pack()
+        easy_window = EasyWindow(self._window, window_title="PcGame window", adjust_x=False,
+                                 adjust_y=False)
+        easy_window.auto_position()
+        tk.Canvas(self._window, width=easy_window.get_window_width(), height=easy_window.get_window_height()).pack()
         self._window.mainloop()

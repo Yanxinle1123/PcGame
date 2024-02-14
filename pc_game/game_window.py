@@ -10,14 +10,14 @@ from pc_game.seplit_line import SeplitLine
 
 class GameWindow:
     def __init__(self):
-        self.window = None
-        self.grade = Grade()
-        self.score = Score()
-        self.balls = []
-        self.seplit_line = SeplitLine()
-        self.music = Music()
-        self.buttons = []
-        self.game_chars = []
+        self._window = None
+        self._grade = Grade()
+        self._score = Score()
+        self._balls = []
+        self._seplit_line = SeplitLine()
+        self._music = Music()
+        self._buttons = []
+        self._game_chars = []
 
     def _create_grade(self, ):
         # TODO : Complete method content
@@ -47,7 +47,10 @@ class GameWindow:
         # TODO : Complete method content
         pass
 
+    def get_tk_window(self):
+        return self._window
+
     def game_start(self):
-        self.window = tk.Tk()
-        EasyWindow(self.window, "PcGame window", False, False).auto_position()
-        self.window.mainloop()
+        self._window = tk.Tk()
+        EasyWindow(self._window, "PcGame window", False, False).auto_position()
+        self._window.mainloop()

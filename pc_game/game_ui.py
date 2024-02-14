@@ -1,4 +1,4 @@
-from game_window import GameWindow
+from pc_game.game_window import GameWindow
 
 
 class GameUI:

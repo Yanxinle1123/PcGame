@@ -1,7 +1,7 @@
-from config import Config
-from game_ui import GameUI
-from key_press import KeyPress
-from settings_window import SettingsWindow
+from pc_game.config import Config
+from pc_game.game_ui import GameUI
+from pc_game.key_press import KeyPress
+from pc_game.settings_window import SettingsWindow
 
 
 class Game:

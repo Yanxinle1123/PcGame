@@ -1,7 +1,7 @@
-from grade import Grade
-from music import Music
-from score import Score
-from seplit_line import SeplitLine
+from pc_game.grade import Grade
+from pc_game.music import Music
+from pc_game.score import Score
+from pc_game.seplit_line import SeplitLine
 
 
 class GameWindow:

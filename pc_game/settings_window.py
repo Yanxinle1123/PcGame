@@ -1,4 +1,4 @@
-from config import Config
+from pc_game.config import Config
 
 
 class SettingsWindow:

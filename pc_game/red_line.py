@@ -6,7 +6,7 @@ class RedLine:
         self._window_width = window_width
         self._red_line_height = 20
         self._red_line_x0 = 0
-        self._red_line_y0 = self._window_height - 80
+        self._red_line_y0 = self._window_height - 120
         self._red_line_x1 = 1628
         self._red_line_y1 = self._red_line_y0
         self._red_line = None

@@ -1,4 +1,4 @@
-from pc_game.config import Config
+from pc_game.config import PcConfig
 
 
 class SettingsWindow:
@@ -6,7 +6,7 @@ class SettingsWindow:
         # TODO you should add Button elements in the list
         self.buttons = []
         # TODO define the parameters : 
-        self.config = Config()
+        self.config = PcConfig()
         self._config_window = None
 
     def _make_button_music_volumn(self, ):

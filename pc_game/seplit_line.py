@@ -1,6 +1,4 @@
-
-
-class SeplitLine:
+class PcSeplitLine:
     def __init__(self):
         pass
 

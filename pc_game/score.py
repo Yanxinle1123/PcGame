@@ -1,6 +1,4 @@
-
-
-class Score:
+class PcScore:
     def __init__(self):
         self._score = None
 

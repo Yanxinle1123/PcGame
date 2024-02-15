@@ -1,4 +1,4 @@
-class RedLine:
+class PcRedLine:
     def __init__(self, window, canvas, window_height, window_width):
         self._window = window
         self._canvas = canvas

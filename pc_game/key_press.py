@@ -1,6 +1,4 @@
-
-
-class KeyPress:
+class PcKeyPress:
     def __init__(self):
         pass
 

@@ -1,6 +1,4 @@
-
-
-class Config:
+class PcConfig:
     def __init__(self):
         self._letters = None
         self._lower_list = None

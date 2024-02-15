@@ -1,4 +1,4 @@
-from pc_game.game_window import GameWindow
+from pc_game.game_window import PcGameWindow
 
 if __name__ == "__main__":
-    GameWindow().game_start()
+    PcGameWindow().game_start()

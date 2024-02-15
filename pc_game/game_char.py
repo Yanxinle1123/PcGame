@@ -1,6 +1,4 @@
-
-
-class GameChar:
+class PcGameChar:
     def __init__(self):
         pass
 

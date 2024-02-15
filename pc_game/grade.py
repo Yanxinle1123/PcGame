@@ -1,6 +1,4 @@
-
-
-class Grade:
+class PcGrade:
     def __init__(self):
         self._grade = None
 

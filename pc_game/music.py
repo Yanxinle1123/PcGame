@@ -1,6 +1,4 @@
-
-
-class Music:
+class PcMusic:
     def __init__(self):
         self._music_list = None
 

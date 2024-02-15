@@ -1,19 +1,19 @@
-from pc_game.config import Config
+from pc_game.config import PcConfig
 from pc_game.game_ui import GameUI
-from pc_game.key_press import KeyPress
+from pc_game.key_press import PcKeyPress
 from pc_game.settings_window import SettingsWindow
 
 
-class Game:
+class PcGame:
     def __init__(self):
         # TODO define the parameters : 
-        self.config = Config()
+        self.config = PcConfig()
         # TODO define the parameters : 
         self.game_ui = GameUI()
         # TODO define the parameters : 
         self.settings_window = SettingsWindow()
         # TODO define the parameters : 
-        self.key_press = KeyPress()
+        self.key_press = PcKeyPress()
         self._config_game = None
         self._key_press = None
 

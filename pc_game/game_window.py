@@ -2,24 +2,24 @@ import tkinter as tk
 
 from LeleEasyTkinter.easy_auto_window import EasyWindow
 
-from pc_game.ball import Ball
-from pc_game.grade import Grade
-from pc_game.music import Music
-from pc_game.red_line import RedLine
-from pc_game.score import Score
-from pc_game.seplit_line import SeplitLine
+from pc_game.ball import PcBall
+from pc_game.grade import PcGrade
+from pc_game.music import PcMusic
+from pc_game.red_line import PcRedLine
+from pc_game.score import PcScore
+from pc_game.seplit_line import PcSeplitLine
 
 
-class GameWindow:
+class PcGameWindow:
     def __init__(self):
         self._ball = None
         self._canvas = None
         self._window = None
-        self._grade = Grade()
-        self._score = Score()
+        self._grade = PcGrade()
+        self._score = PcScore()
         self._balls = []
-        self._seplit_line = SeplitLine()
-        self._music = Music()
+        self._seplit_line = PcSeplitLine()
+        self._music = PcMusic()
         self._buttons = []
         self._game_chars = []
         self._yellow = 'green'
@@ -141,8 +141,9 @@ class GameWindow:
         self._canvas = tk.Canvas(self._window, width=easy_window.get_window_width(),
                                  height=easy_window.get_window_height())
         self._canvas.pack()
-        red_line = RedLine(self._window, self._canvas, easy_window.get_window_height(), easy_window.get_window_width())
+        red_line = PcRedLine(self._window, self._canvas, easy_window.get_window_height(),
+                             easy_window.get_window_width())
         red_line._draw_red_lines()
-        self._ball = Ball(self._canvas, red_line.get_red_line_x1(), red_line.get_red_line_y1(), self._grade_map)
+        self._ball = PcBall(self._canvas, red_line.get_red_line_x1(), red_line.get_red_line_y1(), self._grade_map)
         self._ball._draw_ball()
         self._window.mainloop()

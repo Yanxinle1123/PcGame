@@ -154,7 +154,7 @@ class PcGameWindow:
                             self._grade_map)
         self._ball._draw_ball()
 
-        self._button = PcButton(self._canvas, 60, "black",
+        self._button = PcButton(self._canvas, 50, "black",
                                 "grey", easy_window.get_window_width(), self._red_line.get_red_line_y0())
         self._button._draw_button()
 

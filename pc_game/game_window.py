@@ -3,6 +3,7 @@ import tkinter as tk
 from LeleEasyTkinter.easy_auto_window import EasyWindow
 
 from pc_game.ball import PcBall
+from pc_game.button import PcButton
 from pc_game.grade import PcGrade
 from pc_game.music import PcMusic
 from pc_game.red_line import PcRedLine
@@ -12,7 +13,9 @@ from pc_game.seplit_line import PcSeplitLine
 
 class PcGameWindow:
     def __init__(self):
+        self._red_line = None
         self._ball = None
+        self._button = None
         self._canvas = None
         self._window = None
         self._grade = PcGrade()
@@ -135,15 +138,24 @@ class PcGameWindow:
 
     def game_start(self):
         self._window = tk.Tk()
+
         easy_window = EasyWindow(self._window, window_title="PcGame window", adjust_x=False,
                                  adjust_y=False).auto_position()
 
         self._canvas = tk.Canvas(self._window, width=easy_window.get_window_width(),
                                  height=easy_window.get_window_height())
         self._canvas.pack()
-        red_line = PcRedLine(self._window, self._canvas, easy_window.get_window_height(),
-                             easy_window.get_window_width())
-        red_line._draw_red_lines()
-        self._ball = PcBall(self._canvas, red_line.get_red_line_x1(), red_line.get_red_line_y1(), self._grade_map)
+
+        self._red_line = PcRedLine(self._window, self._canvas, easy_window.get_window_height(),
+                                   easy_window.get_window_width())
+        self._red_line._draw_red_lines()
+
+        self._ball = PcBall(self._canvas, self._red_line.get_red_line_x1(), self._red_line.get_red_line_y1(),
+                            self._grade_map)
         self._ball._draw_ball()
+
+        self._button = PcButton(self._canvas, 60, "black",
+                                "grey", easy_window.get_window_width(), self._red_line.get_red_line_y0())
+        self._button._draw_button()
+
         self._window.mainloop()

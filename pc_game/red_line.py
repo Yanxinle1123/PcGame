@@ -11,7 +11,7 @@ class RedLine:
         self._red_line_y1 = self._red_line_y0
         self._red_line = None
 
-    def draw_red_lines(self):
+    def _draw_red_lines(self):
         self._red_line = self._canvas.create_line(self._red_line_x0, self._red_line_y0, self._red_line_x1,
                                                   self._red_line_y1, fill='red',
                                                   width=self._red_line_height)

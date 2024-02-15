@@ -12,7 +12,7 @@ class Ball:
         self._ball_x1 = self._ball_x1 - 30 / 2
         self._ball = None
 
-    def draw_ball(self):
+    def _draw_ball(self):
         self._ball = ball_first(self._canvas, self._grade_map["ball_color"], self._ball_x1, self._ball_y1)
 
     def _get_color(self, ):

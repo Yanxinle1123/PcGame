@@ -22,6 +22,9 @@ class Button:
         self._set_up_width = None
         self._set_up_height = None
 
+    def _draw_button(self):
+        pass
+
     def _get_x(self, ):
         # TODO : Complete method content
         pass

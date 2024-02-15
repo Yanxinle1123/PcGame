@@ -97,6 +97,21 @@ class PcButton:
         # TODO : Complete method content
         pass
 
+    def _get_start_buttons(self):
+        return self._start_button
+
+    def _get_close_buttons(self):
+        return self._close_button
+
+    def _get_pause_button(self):
+        return self._pause_button
+
+    def _get_continue_button(self):
+        return self._continue_button
+
+    def _get_set_up_button(self):
+        return self._set_up_button
+
     def _make_font(self, fong_name, font_size):
         # TODO : Complete method content
         pass

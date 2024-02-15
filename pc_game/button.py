@@ -3,7 +3,8 @@ from tkinter import Button
 
 class PcButton:
     def __init__(self, canvas, button_text_size, continue_button_text_color, pause_button_text_color, window_width,
-                 red_line_y0):
+                 red_line_y0, start_command=None, close_command=None, paused_command=None, continue_command=None,
+                 set_up_command=None, ):
         self._red_line_y0 = red_line_y0
         self._window_width = window_width
         self._canvas = canvas
@@ -12,29 +13,29 @@ class PcButton:
         self._start_button = None
         self._start_width = None
         self._start_height = None
-        self._start_command = None
+        self._start_command = start_command
 
         self._close_button = None
         self._close_width = None
         self._close_height = None
-        self._close_command = None
+        self._close_command = close_command
 
         self._paused_button = None
         self._paused_width = None
         self._paused_height = None
-        self._paused_command = None
+        self._paused_command = paused_command
         self._pause_button_text_color = pause_button_text_color
 
         self._continue_button = None
         self._continue_width = None
         self._continue_height = None
-        self._continue_command = None
+        self._continue_command = continue_command
         self._continue_button_text_color = continue_button_text_color
 
         self._set_up_button = None
         self._set_up_width = None
         self._set_up_height = None
-        self._set_up_command = None
+        self._set_up_command = set_up_command
 
     def _draw_button(self):
         self._start_button = Button(self._canvas, text='开始', font=("Arial", self._button_text_size), fg='black',

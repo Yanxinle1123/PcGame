@@ -12,6 +12,7 @@ from pc_game.seplit_line import SeplitLine
 
 class GameWindow:
     def __init__(self):
+        self._ball = None
         self._canvas = None
         self._window = None
         self._grade = Grade()
@@ -97,6 +98,9 @@ class GameWindow:
             {"move_char_time_ms": 10, "other_char": 8, "gen_char_time_ms": 200,
              "ball_color": "red", "char_color": self._rainbow},  # 第 10 关
         ]
+        self._grade = 0
+        self._what_list = self._lower_list
+        self._grade_map = self._what_list[self._grade]
 
     def _create_grade(self, ):
         # TODO : Complete method content
@@ -139,5 +143,6 @@ class GameWindow:
         self._canvas.pack()
         red_line = RedLine(self._window, self._canvas, easy_window.get_window_height(), easy_window.get_window_width())
         red_line.draw_red_lines()
-        ball = Ball(self._canvas, red_line.get_red_line_x1(), red_line.get_red_line_y1(), )
+        self._ball = Ball(self._canvas, red_line.get_red_line_x1(), red_line.get_red_line_y1(), self._grade_map)
+        self._ball.draw_ball()
         self._window.mainloop()

@@ -2,7 +2,7 @@ from comm.comm_draw import ball_first
 
 
 class Ball:
-    def __init__(self, canvas, red_line_x1, red_line_y1, grade_map, ):
+    def __init__(self, canvas, red_line_x1, red_line_y1, grade_map):
         self._canvas = canvas
         self._red_line_x1 = red_line_x1
         self._red_line_y1 = red_line_y1

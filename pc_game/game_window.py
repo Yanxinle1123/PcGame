@@ -13,6 +13,7 @@ from pc_game.seplit_line import PcSeplitLine
 
 class PcGameWindow:
     def __init__(self):
+        self._easy_window = None
         self._red_line = None
         self._ball = None
         self._button = None
@@ -118,16 +119,19 @@ class PcGameWindow:
         pass
 
     def _create_ball(self, ):
-        # TODO : Complete method content
-        pass
+        self._ball = PcBall(self._canvas, self._red_line.get_red_line_x1(), self._red_line.get_red_line_y1(),
+                            self._grade_map)
+        self._ball._draw_ball()
 
     def _create_red_line(self, ):
-        # TODO : Complete method content
-        pass
+        self._red_line = PcRedLine(self._window, self._canvas, self._easy_window.get_window_height(),
+                                   self._easy_window.get_window_width())
+        self._red_line._draw_red_lines()
 
     def _creat_button(self, ):
-        # TODO : Complete method content
-        pass
+        self._button = PcButton(self._canvas, 50, "black",
+                                "grey", self._easy_window.get_window_width(), self._red_line.get_red_line_y0())
+        self._button._draw_button()
 
     def _play_music(self, ):
         # TODO : Complete method content
@@ -136,26 +140,21 @@ class PcGameWindow:
     def get_tk_window(self):
         return self._window
 
+    def layout(self):
+        self._create_red_line()
+        self._create_ball()
+        self._creat_button()
+
     def game_start(self):
         self._window = tk.Tk()
 
-        easy_window = EasyWindow(self._window, window_title="PcGame window", adjust_x=False,
-                                 adjust_y=False).auto_position()
+        self._easy_window = EasyWindow(self._window, window_title="PcGame window", adjust_x=False,
+                                       adjust_y=False).auto_position()
 
-        self._canvas = tk.Canvas(self._window, width=easy_window.get_window_width(),
-                                 height=easy_window.get_window_height())
+        self._canvas = tk.Canvas(self._window, width=self._easy_window.get_window_width(),
+                                 height=self._easy_window.get_window_height())
         self._canvas.pack()
 
-        self._red_line = PcRedLine(self._window, self._canvas, easy_window.get_window_height(),
-                                   easy_window.get_window_width())
-        self._red_line._draw_red_lines()
-
-        self._ball = PcBall(self._canvas, self._red_line.get_red_line_x1(), self._red_line.get_red_line_y1(),
-                            self._grade_map)
-        self._ball._draw_ball()
-
-        self._button = PcButton(self._canvas, 50, "black",
-                                "grey", easy_window.get_window_width(), self._red_line.get_red_line_y0())
-        self._button._draw_button()
+        self.layout()
 
         self._window.mainloop()

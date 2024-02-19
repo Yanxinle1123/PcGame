@@ -127,10 +127,6 @@ class PcGameWindow:
         #
         pass
 
-    def close_games(self):
-        #
-        pass
-
     def pause_games(self):
         #
         pass
@@ -328,7 +324,7 @@ class PcGameWindow:
     def _creat_button(self):
         self._button = PcButton(self._canvas, 50, "black",
                                 "grey", self._easy_window.get_window_width(), self._red_line.get_red_line_y0(),
-                                self.start_game, self.close_games, self.pause_games, self.continue_game,
+                                self.start_game, self._close_game, self.pause_games, self.continue_game,
                                 self.set_up)
 
     def _play_music(self):

@@ -2,7 +2,7 @@ from tkinter import Button
 
 
 class PcButton:
-    def __init__(self, canvas, button_text_size, continue_button_text_color, pause_button_text_color, window_width,
+    def __init__(self, canvas, button_text_size, continue_button_text_color, paused_button_text_color, window_width,
                  red_line_y0, start_command=None, close_command=None, paused_command=None, continue_command=None,
                  set_up_command=None, ):
         self._red_line_y0 = red_line_y0
@@ -24,7 +24,7 @@ class PcButton:
         self._paused_width = None
         self._paused_height = None
         self._paused_command = paused_command
-        self._pause_button_text_color = pause_button_text_color
+        self._paused_button_text_color = paused_button_text_color
 
         self._continue_button = None
         self._continue_width = None
@@ -37,6 +37,8 @@ class PcButton:
         self._set_up_height = None
         self._set_up_command = set_up_command
 
+        self._draw_button()
+
     def _draw_button(self):
         self._start_button = Button(self._canvas, text='开始', font=("Arial", self._button_text_size), fg='black',
                                     command=self._start_command)
@@ -48,15 +50,13 @@ class PcButton:
         self._close_width = self._close_button.winfo_reqwidth()
         self._close_height = self._close_button.winfo_reqheight()
 
-        self._pause_button = Button(self._canvas, text='暂停', font=("Arial", self._button_text_size),
-                                    fg=self._pause_button_text_color,
-                                    command=self._paused_command)
-        self._pause_width = self._pause_button.winfo_reqwidth()
-        self._pause_height = self._pause_button.winfo_reqheight()
+        self._paused_button = Button(self._canvas, text='暂停', font=("Arial", self._button_text_size),
+                                     fg=self._paused_button_text_color, command=self._paused_command)
+        self._paused_width = self._paused_button.winfo_reqwidth()
+        self._paused_height = self._paused_button.winfo_reqheight()
 
         self._continue_button = Button(self._canvas, text='继续', font=("Arial", self._button_text_size),
-                                       fg=self._continue_button_text_color,
-                                       command=self._continue_command)
+                                       fg=self._continue_button_text_color, command=self._continue_command)
         self._continue_width = self._continue_button.winfo_reqwidth()
         self._continue_height = self._continue_button.winfo_reqheight()
 
@@ -68,7 +68,8 @@ class PcButton:
         button_width_gap = 40
         button_height_gap = 22
         start_x = (self._window_width - self._start_width - button_width_gap - self._close_width - button_width_gap
-                   - self._pause_width - button_width_gap - self._continue_width - button_width_gap - self._set_up_width) // 2
+                   - self._paused_width - button_width_gap - self._continue_width
+                   - button_width_gap - self._set_up_width) // 2
         start_y = self._red_line_y0 + button_height_gap
 
         close_x = start_x + self._start_width + button_width_gap
@@ -77,7 +78,7 @@ class PcButton:
         pause_x = close_x + self._close_width + button_width_gap
         pause_y = start_y
 
-        continue_x = pause_x + self._pause_width + button_width_gap
+        continue_x = pause_x + self._paused_width + button_width_gap
         continue_y = start_y
 
         set_up_x = continue_x + self._continue_width + button_width_gap
@@ -85,34 +86,26 @@ class PcButton:
 
         self._start_button.place(x=start_x, y=start_y)
         self._close_button.place(x=close_x, y=close_y)
-        self._pause_button.place(x=pause_x, y=pause_y)
+        self._paused_button.place(x=pause_x, y=pause_y)
         self._continue_button.place(x=continue_x, y=continue_y)
         self._set_up_button.place(x=set_up_x, y=set_up_y)
 
-    def _get_x(self, ):
-        # TODO : Complete method content
-        pass
-
-    def _get_y(self, ):
-        # TODO : Complete method content
-        pass
-
-    def _get_start_buttons(self):
+    def get_start_buttons(self):
         return self._start_button
 
-    def _get_close_buttons(self):
+    def get_close_buttons(self):
         return self._close_button
 
-    def _get_pause_button(self):
-        return self._pause_button
+    def get_pause_button(self):
+        return self._paused_button
 
-    def _get_continue_button(self):
+    def get_continue_button(self):
         return self._continue_button
 
-    def _get_set_up_button(self):
+    def get_set_up_button(self):
         return self._set_up_button
 
-    def _make_font(self, fong_name, font_size):
+    def _make_font(self, font_name, font_size):
         # TODO : Complete method content
         pass
 

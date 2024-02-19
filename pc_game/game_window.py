@@ -143,9 +143,23 @@ class PcGameWindow:
         #
         pass
 
+    def _on_close(self):
+        # quit_music()
+        # win.destroy()
+        self._window.destroy()
+
+    #
+    def _close_game(self):
+        self._on_close()
+
+    # def set_up(self):
+    #
+    #     # TODO document why this method is empty
+    #     pass
+
     def set_up(self):
-        if self._button._get_set_up_button().cget('fg') != 'gray' and self._number2 % 2 == 0:
-            self._button._get_set_up_button().config(fg='gray')
+        if self._button.get_set_up_button().cget('fg') != 'gray' and self._number2 % 2 == 0:
+            self._button.get_set_up_button().config(fg='gray')
             self._is_continue = False
             pygame.mixer.music.unpause()
 
@@ -158,7 +172,7 @@ class PcGameWindow:
                     self._is_continue = True
                     self.generate_and_move()
                 new_window.destroy()
-                self._button._get_set_up_button().config(fg='black')
+                self._button.get_set_up_button().config(fg='black')
                 self._number2 += 1
 
             def on_scale_changed(value):
@@ -304,19 +318,18 @@ class PcGameWindow:
     def _create_ball(self):
         self._ball = PcBall(self._canvas, self._red_line.get_red_line_x1(), self._red_line.get_red_line_y1(),
                             self._grade_map)
-        self._ball._draw_ball()
+        self._ball.draw_ball()
 
     def _create_red_line(self):
         self._red_line = PcRedLine(self._window, self._canvas, self._easy_window.get_window_height(),
                                    self._easy_window.get_window_width())
-        self._red_line._draw_red_lines()
+        self._red_line.draw_red_lines()
 
     def _creat_button(self):
         self._button = PcButton(self._canvas, 50, "black",
                                 "grey", self._easy_window.get_window_width(), self._red_line.get_red_line_y0(),
-                                self.start_game, self.close_games(), self.pause_games(), self.continue_game(),
-                                self.set_up())
-        self._button._draw_button()
+                                self.start_game, self.close_games, self.pause_games, self.continue_game,
+                                self.set_up)
 
     def _play_music(self):
         # TODO : Complete method content
